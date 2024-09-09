@@ -40,7 +40,7 @@ public class MyAccessibilityService extends AccessibilityService {
         path.moveTo(x, y);
 
         // 创建点击手势
-        gestureBuilder.addStroke(new GestureDescription.StrokeDescription(path, 0, 50)); // 延迟0ms，持续50ms
+        gestureBuilder.addStroke(new GestureDescription.StrokeDescription(path, 0, 20)); // 延迟0ms，持续20ms
         dispatchGesture(gestureBuilder.build(), null, null);
     }
 
@@ -49,7 +49,7 @@ public class MyAccessibilityService extends AccessibilityService {
         for (int i = 0; i < count; i++) {
             performClick(x, y);
             try {
-                Thread.sleep(50); // 每次点击之间的延迟时间
+                Thread.sleep(20); // 每次点击之间的延迟时间
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
