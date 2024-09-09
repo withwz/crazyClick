@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">crazyClick</string>
+    <string name="accessibility_service_description">accessibility-service-config</string>
+</resources>
