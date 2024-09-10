@@ -1,17 +1,17 @@
 package com.livs.crazyClick;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -43,6 +42,24 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         });
 
         Button buttonDetect = findViewById(R.id.button);
+        ImageView wxPayImageView = findViewById(R.id.wxPay);
+        ImageView aliPayImageView = findViewById(R.id.aliPay);
+
+        wxPayImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImageDialog(R.drawable.wx_pay);
+            }
+        });
+
+        aliPayImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImageDialog(R.drawable.ali_pay);
+            }
+        });
+
+
         buttonDetect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -61,6 +78,15 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             }
         });
         setList();
+    }
+
+    // 显示放大的图片
+    private void showImageDialog(int imageResource) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_image); // 创建一个新布局文件
+        ImageView imageView = dialog.findViewById(R.id.dialogImageView);
+        imageView.setImageResource(imageResource);
+        dialog.show();
     }
 
     // 请求悬浮窗权限

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">疯狂可莉</string>
     <string name="accessibility_service_description">accessibility-service-config</string>
+    <string name="open_click_button">打开点击按钮</string>
+    <string name="thankyou">^ ⑉・ᴗ・⑉ ૮ ˃感谢支持</string>
+    <string name="auth_tip_message">需要启用以下几项权限</string>
 </resources>
